@@ -1,31 +1,25 @@
-# Symptom Matching Agent (final project)
+BioBERT Symptom Search
+
+Graduation project: scrapes illness pages, matches symptoms with BioBERT + FAISS, and gives general guidance via Gemini.
 
 Two notebooks:
 
-1. `Final_project_web_scraping.ipynb` scrapes the A–Z illness pages from NHS Inform and stores them in MongoDB.
-2. `final_proccessing.ipynb` extracts symptom text, builds a BioBERT + FAISS index and serves a small Gradio app
-   that matches symptoms to conditions and asks Gemini for general guidance.
+Final_project_web_scraping.ipynb: scrapes illness pages into MongoDB.
+final_proccessing.ipynb: extracts symptoms, builds a BioBERT + FAISS index and runs a Gradio app that suggests a matching condition and general guidance from Gemini.
 
-> ⚠️ **Disclaimer:** educational project only. It is **not** a medical device, does not provide diagnoses or
-> medical advice, and must not be used to make health decisions. In an emergency contact your local emergency services.
+⚠️ Educational project only. Not medical advice and not a diagnosis tool. In an emergency contact your local emergency services.
 
-## Setup
-
-```bash
+Setup
+bash
 pip install -r requirements.txt
-cp .env.example .env      # then edit .env and add your own GEMINI_API_KEY
-```
+cp .env.example .env     # then put your own GEMINI_API_KEY in .env
 
-You also need a running MongoDB (default `mongodb://localhost:27017/`).
-Run notebook 1 first, then notebook 2.
+Requires a running MongoDB at mongodb://localhost:27017/. Run notebook 1, then notebook 2.
 
-## Security notes
+Data source
 
-- Secrets are read from environment variables / `.env` (git-ignored). Never commit real keys.
-- The Gradio app is local-only by default. Public sharing needs `GRADIO_SHARE=true` plus `GRADIO_USER` / `GRADIO_PASSWORD`.
-- Clear notebook outputs before committing (they can contain paths, links and scraped content).
+Illness information comes from NHS inform (nhsinform.scot), © NHS 24. This project is not affiliated with or endorsed by NHS 24. Scraped content is not included in this repository. Educational, non-commercial use only. Please read the source site's terms and conditions before collecting or sharing any of its content.
 
-## Data & copyright
-
-The scraped NHS Inform content is **not** included in this repo. Check the site's terms of use before
-redistributing any scraped data.
+Notes
+Never commit .env or API keys.
+Clear notebook outputs before committing, since they can contain scraped content and local paths.
