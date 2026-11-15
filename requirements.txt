@@ -1,0 +1,10 @@
+requests
+beautifulsoup4
+pymongo
+numpy
+nltk
+python-dotenv
+sentence-transformers
+faiss-cpu
+google-genai
+gradio

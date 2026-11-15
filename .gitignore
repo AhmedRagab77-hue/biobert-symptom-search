@@ -1,0 +1,38 @@
+# Secrets / environment
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets.json
+credentials.json
+
+# Jupyter
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Local data / DB dumps / caches (scraped data and model caches can be huge)
+data/
+*.csv
+*.json.bak
+dump/
+*.bson
+*.faiss
+.cache/
+.gradio/
+flagged/
+nltk_data/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
